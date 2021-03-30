@@ -3,8 +3,7 @@ package com.switchfully.repository;
 import com.switchfully.model.customer.Customer;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Repository
 public class CustomerRepository {
@@ -15,4 +14,11 @@ public class CustomerRepository {
         return customers.add(customer);
     }
 
+    public Collection<Customer> getAllCustomers(){
+        return Collections.unmodifiableSet(customers);
+    }
+
+    public Optional<Customer> getCustomer(String id) {
+        return customers.stream().filter(customer -> customer.getId().toString().equals(id)).findFirst();
+    }
 }

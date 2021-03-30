@@ -7,7 +7,12 @@ public class Admin {
     private final UUID id;
     private final String email;
 
-    public Admin(UUID id, String email) {
+    public Admin(String email) {
+        id = UUID.randomUUID();
+        this.email = email;
+    }
+
+     public Admin(UUID id, String email) {
         this.id = id;
         this.email = email;
     }
