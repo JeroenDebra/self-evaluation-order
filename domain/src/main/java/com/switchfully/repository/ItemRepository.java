@@ -1,8 +1,8 @@
-package repository;
+package com.switchfully.repository;
 
-import model.Currency;
-import model.Item;
-import model.Price;
+import com.switchfully.model.Currency;
+import com.switchfully.model.Item;
+import com.switchfully.model.Price;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -16,6 +16,7 @@ public class ItemRepository {
     private final Set<Item> items = new HashSet<>();
 
     public ItemRepository() {
+        init();
     }
 
     private void init(){

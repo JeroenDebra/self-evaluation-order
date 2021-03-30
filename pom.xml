@@ -48,7 +48,7 @@
             <dependency>
                 <groupId>com.switchfully</groupId>
                 <artifactId>api</artifactId>
-                <version>${project.version}</version>
+                <version>0.0.1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>com.switchfully</groupId>
@@ -65,10 +65,17 @@
                 <artifactId>infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>com.switchfully</groupId>
                 <artifactId>application</artifactId>
-                <version>${project.version}</version>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
             </dependency>
 
         </dependencies>

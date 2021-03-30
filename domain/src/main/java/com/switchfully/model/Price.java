@@ -1,4 +1,4 @@
-package model;
+package com.switchfully.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

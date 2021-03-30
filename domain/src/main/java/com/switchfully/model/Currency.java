@@ -1,4 +1,4 @@
-package model;
+package com.switchfully.model;
 
 public enum Currency {
     EURO("euro");

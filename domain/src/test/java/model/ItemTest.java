@@ -1,5 +1,8 @@
 package model;
 
+import com.switchfully.model.Currency;
+import com.switchfully.model.Item;
+import com.switchfully.model.Price;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -10,7 +13,7 @@ class ItemTest {
 
     @Test
     void constructorWithValidParamaters_createsItemWithSpeciefiedValues() {
-        Item testItem = new Item("hammer",new Price(BigDecimal.TEN,Currency.EURO),10);
+        Item testItem = new Item("hammer",new Price(BigDecimal.TEN, Currency.EURO),10);
 
         assertEquals("hammer", testItem.getName());
         assertEquals(new Price(BigDecimal.TEN,Currency.EURO), testItem.getPrice());

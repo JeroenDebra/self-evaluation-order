@@ -1,4 +1,4 @@
-package model;
+package com.switchfully.model;
 
 import java.util.Objects;
 import java.util.UUID;
