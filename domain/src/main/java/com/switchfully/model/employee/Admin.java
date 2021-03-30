@@ -1,5 +1,6 @@
 package com.switchfully.model.employee;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Admin {
@@ -23,5 +24,18 @@ public class Admin {
 
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Admin admin = (Admin) o;
+        return Objects.equals(id, admin.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

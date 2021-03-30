@@ -27,4 +27,8 @@ public class ItemRepository {
         return items;
     }
 
+    public boolean addItem(Item item){
+        return items.add(item);
+    }
+
 }
