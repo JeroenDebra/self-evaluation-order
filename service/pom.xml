@@ -17,13 +17,15 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.switchfully</groupId>
-            <artifactId>domain</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.switchfully</groupId>
             <artifactId>infrastructure</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.switchfully</groupId>
+            <artifactId>domain</artifactId>
         </dependency>
     </dependencies>
 
