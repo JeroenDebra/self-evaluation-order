@@ -20,11 +20,11 @@
     <dependencies>
         <dependency>
             <groupId>com.switchfully</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>service</artifactId>
         </dependency>
         <dependency>
             <groupId>com.switchfully</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>domain</artifactId>
         </dependency>
         <dependency>
             <groupId>com.switchfully</groupId>
