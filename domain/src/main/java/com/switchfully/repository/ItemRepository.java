@@ -2,6 +2,7 @@ package com.switchfully.repository;
 
 import com.switchfully.model.item.Currency;
 import com.switchfully.model.item.Item;
+import com.switchfully.model.item.ItemInfo;
 import com.switchfully.model.item.Price;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +21,7 @@ public class ItemRepository {
     }
 
     private void init(){
-        items.add(new Item("hammer",new Price(BigDecimal.TEN, Currency.EURO),20));
+        items.add(new Item(new ItemInfo("hammer","",new Price(BigDecimal.TEN, Currency.EURO)),20));
     }
 
     public Collection<Item> getAllItems(){

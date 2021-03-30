@@ -3,9 +3,7 @@ package com.switchfully.repository;
 import com.switchfully.model.employee.Admin;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Repository
 public class AdminRepository {
@@ -18,9 +16,11 @@ public class AdminRepository {
 
     private void init(){
         admins.add(new Admin(UUID.fromString("5e03adec-6d19-44a2-92b1-a16f9010dd53"),"admin@order.be"));
+        List<String> strings = new ArrayList<>();
     }
 
     public boolean isAdmin(String id){
         return admins.stream().anyMatch(admin -> admin.getId().toString().equals(id));
+
     }
 }
