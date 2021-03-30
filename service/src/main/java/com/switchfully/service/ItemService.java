@@ -1,6 +1,6 @@
 package com.switchfully.service;
 
-import com.switchfully.model.Item;
+import com.switchfully.model.item.Item;
 import org.springframework.stereotype.Service;
 import com.switchfully.repository.ItemRepository;
 

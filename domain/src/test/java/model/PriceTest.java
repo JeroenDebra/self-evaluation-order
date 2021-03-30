@@ -1,7 +1,7 @@
 package model;
 
-import com.switchfully.model.Currency;
-import com.switchfully.model.Price;
+import com.switchfully.model.item.Currency;
+import com.switchfully.model.item.Price;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 

@@ -1,7 +1,7 @@
 package com.switchfully.mapper;
 
 import com.switchfully.dto.ItemDTO;
-import com.switchfully.model.Item;
+import com.switchfully.model.item.Item;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
