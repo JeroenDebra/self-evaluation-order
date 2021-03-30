@@ -2,19 +2,19 @@ package com.switchfully.dto;
 
 public class ItemGroupDTO {
 
-    private String uuid;
+    private String productId;
     private int amount;
 
-    public String getUuid() {
-        return uuid;
+    public String getProductId() {
+        return productId;
     }
 
     public int getAmount() {
         return amount;
     }
 
-    public ItemGroupDTO setUuid(String uuid) {
-        this.uuid = uuid;
+    public ItemGroupDTO setProductId(String productId) {
+        this.productId = productId;
         return this;
     }
 

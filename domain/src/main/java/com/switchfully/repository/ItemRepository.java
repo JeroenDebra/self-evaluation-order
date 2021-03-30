@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
@@ -32,4 +33,7 @@ public class ItemRepository {
         return items.add(item);
     }
 
+    public Optional<Item> getItemById(String productId) {
+        return items.stream().filter(item -> item.getItemInfo().getId().toString().equals(productId)).findFirst();
+    }
 }
