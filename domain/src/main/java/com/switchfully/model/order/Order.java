@@ -2,6 +2,7 @@ package com.switchfully.model.order;
 
 import com.switchfully.model.customer.Customer;
 
+import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.Set;
 import java.util.UUID;
@@ -28,5 +29,15 @@ public class Order {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public BigDecimal getTotalPrice(){
+        BigDecimal result = BigDecimal.ZERO;
+
+        for (ItemGroup item : items) {
+           result = result.add(item.getTotalPrice());
+        }
+
+        return result;
     }
 }

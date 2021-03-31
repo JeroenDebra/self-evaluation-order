@@ -38,4 +38,8 @@ public class Item {
     public int hashCode() {
         return Objects.hash(itemInfo);
     }
+
+    public void decreaseStockAmount(Integer amount) {
+        this.stockAmount -= amount;
+    }
 }

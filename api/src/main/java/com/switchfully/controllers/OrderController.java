@@ -1,6 +1,6 @@
 package com.switchfully.controllers;
 
-import com.switchfully.dto.ItemGroupDTO;
+import com.switchfully.dto.CreateItemGroupDTO;
 import com.switchfully.dto.OrderDTO;
 import com.switchfully.mapper.ItemGroupMapper;
 import com.switchfully.mapper.OrderMapper;
@@ -26,8 +26,8 @@ public class OrderController {
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public OrderDTO addOrder(@RequestHeader("CustomerId") String customerId, @RequestBody Collection<ItemGroupDTO> items){
-        return orderMapper.toDTO(orderService.addOrder(customerId, itemGroupMapper.toMap(items)));
+    public OrderDTO addOrder(@RequestHeader("CustomerId") String customerId, @RequestBody Collection<CreateItemGroupDTO> items){
+        return orderMapper.toDTO(orderService.addOrder(customerId, itemGroupMapper.CreateItemGroupDTOtoMap(items)));
     }
 
 }

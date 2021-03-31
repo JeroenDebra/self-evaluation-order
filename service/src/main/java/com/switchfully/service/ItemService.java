@@ -8,6 +8,7 @@ import com.switchfully.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -34,10 +35,13 @@ public class ItemService {
     }
 
     public Item getItem(String productId) {
-        //TODO
         Optional<Item> item = itemRepository.getItemById(productId);
         if (item.isEmpty()) throw new ItemNotFoundException("item with product id:" + productId + " could not be found");
 
         return item.get();
+    }
+
+    public void reduceStock(Map<String,Integer> productAndAmount) {
+        productAndAmount.keySet().forEach(productId -> getItem(productId).decreaseStockAmount(productAndAmount.get(productId)));
     }
 }

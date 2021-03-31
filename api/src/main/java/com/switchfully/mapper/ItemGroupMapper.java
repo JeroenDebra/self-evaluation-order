@@ -1,6 +1,6 @@
 package com.switchfully.mapper;
 
-import com.switchfully.dto.ItemGroupDTO;
+import com.switchfully.dto.CreateItemGroupDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
@@ -10,7 +10,7 @@ import java.util.Map;
 @Component
 public class ItemGroupMapper {
 
-    public Map<String, Integer> toMap(Collection<ItemGroupDTO> items){
+    public Map<String, Integer> CreateItemGroupDTOtoMap(Collection<CreateItemGroupDTO> items){
 
         Map<String, Integer> result = new HashMap<>();
 

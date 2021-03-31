@@ -13,17 +13,20 @@ public class ItemGroup {
     private final LocalDate shippingDate;
 
     public ItemGroup(Item item, int amount) {
-        this.itemInfo = item.getItemInfo();
+        this.itemInfo = item.getItemInfo().deepClone();
         this.amount = amount;
         this.shippingDate = calculateShippingDate(item);
     }
 
     private LocalDate calculateShippingDate(Item item){
-        return null;
+        if (item.getStockAmount()>=amount){
+            return LocalDate.now().plusDays(1);
+        }
+        return LocalDate.now().plusDays(7);
     }
 
-    public BigDecimal caluclateFullAmount(){
-        return null;
+    public BigDecimal getTotalPrice(){
+        return itemInfo.getPrice().getAmount().multiply(BigDecimal.valueOf(amount));
     }
 
     public ItemInfo getItemInfo() {

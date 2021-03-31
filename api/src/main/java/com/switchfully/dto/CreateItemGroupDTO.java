@@ -1,6 +1,6 @@
 package com.switchfully.dto;
 
-public class ItemGroupDTO {
+public class CreateItemGroupDTO {
 
     private String productId;
     private int amount;
@@ -13,12 +13,12 @@ public class ItemGroupDTO {
         return amount;
     }
 
-    public ItemGroupDTO setProductId(String productId) {
+    public CreateItemGroupDTO setProductId(String productId) {
         this.productId = productId;
         return this;
     }
 
-    public ItemGroupDTO setAmount(int amount) {
+    public CreateItemGroupDTO setAmount(int amount) {
         this.amount = amount;
         return this;
     }

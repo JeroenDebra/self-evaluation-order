@@ -17,6 +17,13 @@ public class ItemInfo {
         this.price = price;
     }
 
+    private ItemInfo(UUID id, String name, String description, Price price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     private String validName(String name) {
         if (name == null || name.isBlank()) throw new IllegalArgumentException("not a valid item name for item:" + getId());
 
@@ -50,5 +57,9 @@ public class ItemInfo {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public ItemInfo deepClone() {
+        return new ItemInfo(this.getId(),this.getName(),this.getDescription(),this.getPrice());
     }
 }

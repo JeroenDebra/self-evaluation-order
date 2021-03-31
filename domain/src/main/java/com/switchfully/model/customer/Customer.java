@@ -1,5 +1,8 @@
 package com.switchfully.model.customer;
 
+import com.switchfully.util.EmailValidator;
+import com.switchfully.util.PhoneValidator;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -16,9 +19,21 @@ public class Customer {
         this.id = UUID.randomUUID();
         this.firstname = firstname;
         this.lasname = lasname;
-        this.email = email;
+        this.email = validEmail(email);
         this.adress = adress;
-        this.phonenumber = phonenumber;
+        this.phonenumber = validPhonenumber(phonenumber);
+    }
+
+    private String validEmail(String email){
+        if (email == null || !EmailValidator.isValidEmail(email)) throw new IllegalArgumentException("email is not valid");
+
+        return email;
+    }
+
+    private String validPhonenumber(String phonenumber){
+        if (phonenumber == null || !PhoneValidator.isValidPhoneNumber(phonenumber)) throw new IllegalArgumentException("phonenumber is not valid");
+
+        return phonenumber;
     }
 
     public UUID getId() {

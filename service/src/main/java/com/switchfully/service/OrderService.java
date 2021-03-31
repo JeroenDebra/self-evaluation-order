@@ -6,9 +6,9 @@ import com.switchfully.model.order.Order;
 import com.switchfully.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -24,12 +24,15 @@ public class OrderService {
     }
 
     public Order addOrder(String customerId, Map<String,Integer> productAndAmount){
-        Set<ItemGroup> items = new HashSet<>();
 
-        productAndAmount.keySet().forEach(productId -> new ItemGroup(itemService.getItem(productId),productAndAmount.get(productId)));
+        Set<ItemGroup> items = productAndAmount.keySet().stream().map(  productId -> new ItemGroup(itemService.getItem(productId),
+                productAndAmount.get(productId))).collect(Collectors.toSet());
 
         Order order = new Order(items, customerService.getCustomer(customerId));
-        if (orderRepository.addOrder(order)) throw new OrderCouldNotBeCreatedException("Order could not be created");
+
+        if (!orderRepository.addOrder(order)) throw new OrderCouldNotBeCreatedException("Order could not be created");
+
+        itemService.reduceStock(productAndAmount);
 
         return order;
     }

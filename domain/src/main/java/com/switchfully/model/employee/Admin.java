@@ -1,5 +1,7 @@
 package com.switchfully.model.employee;
 
+import com.switchfully.util.EmailValidator;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -10,12 +12,18 @@ public class Admin {
 
     public Admin(String email) {
         id = UUID.randomUUID();
-        this.email = email;
+        this.email = validEmail(email);
     }
 
      public Admin(UUID id, String email) {
         this.id = id;
         this.email = email;
+    }
+
+    private String validEmail(String email){
+        if (email == null || !EmailValidator.isValidEmail(email)) throw new IllegalArgumentException("email is not valid");
+
+        return email;
     }
 
     public UUID getId() {
