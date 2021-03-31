@@ -1,7 +1,7 @@
 package com.switchfully.controllers;
 
-import com.switchfully.dto.CreateCustomerDTO;
-import com.switchfully.dto.CustomerDTO;
+import com.switchfully.dto.customer.CreateCustomerDTO;
+import com.switchfully.dto.customer.CustomerDTO;
 import com.switchfully.mapper.CustomerMapper;
 import com.switchfully.service.CustomerService;
 import org.slf4j.Logger;
@@ -27,7 +27,7 @@ public class CustomerController {
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public CustomerDTO addMember(@RequestBody CreateCustomerDTO createMemberDTO) {
+    public CustomerDTO addCustomer(@RequestBody CreateCustomerDTO createMemberDTO) {
         logger.info("A new Member account is being created with email: " + createMemberDTO.getEmail());
 
         return customerMapper.toCustomerDTO(customerService.createCustomer(customerMapper.toCustomer(createMemberDTO)));
@@ -36,13 +36,16 @@ public class CustomerController {
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public Collection<CustomerDTO> getAllCustomers(@RequestHeader("Authorization") String id) {
+        logger.info(id + "is getting to get all customer data");
+
         return customerMapper.listToListDto(customerService.getAllCustomer(id));
     }
 
     @GetMapping(path = "/{id}",produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO getAllCustomers(@RequestHeader("Authorization") String authorizationId, @PathVariable String id) {
-        return customerMapper.toCustomerDTO(customerService.getCustomer(id));
+    public CustomerDTO getCustomer(@RequestHeader("Authorization") String authorizationId, @PathVariable String id) {
+        logger.info(authorizationId + "is getting customer data of " + id);
+        return customerMapper.toCustomerDTO(customerService.viewCustomer(authorizationId, id));
     }
 
 

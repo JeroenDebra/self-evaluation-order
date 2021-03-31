@@ -1,7 +1,8 @@
 package com.switchfully.controllers;
 
-import com.switchfully.dto.CreateItemDTO;
-import com.switchfully.dto.ItemDTO;
+import com.switchfully.dto.item.CreateItemDTO;
+import com.switchfully.dto.item.ItemDTO;
+import com.switchfully.dto.item.UpdateItemDTO;
 import com.switchfully.mapper.ItemMapper;
 import com.switchfully.service.ItemService;
 import org.slf4j.Logger;
@@ -27,6 +28,12 @@ public class ItemController {
     @ResponseStatus(HttpStatus.CREATED)
     public ItemDTO addItem(@RequestHeader("Authorisation") String authorisationId, @RequestBody CreateItemDTO createItemDTO){
         return itemMapper.toDto(itemService.addItem(authorisationId, itemMapper.toItem(createItemDTO)));
+    }
+
+    @PutMapping(path = "/{id}", consumes = "application/json", produces = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ItemDTO updateItem(@RequestHeader("Authorisation") String authorisationId, @PathVariable String id, @RequestBody UpdateItemDTO updateItemDTO){
+        return itemMapper.toDto( itemService.updateItem(authorisationId,id,itemMapper.toItem(updateItemDTO)));
     }
 
 }

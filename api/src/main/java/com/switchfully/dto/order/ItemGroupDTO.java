@@ -1,10 +1,9 @@
-package com.switchfully.dto;
+package com.switchfully.dto.order;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public class ItemGroupDTO {
-
 
     private UUID id;
     private String name;

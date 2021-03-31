@@ -1,4 +1,4 @@
-package com.switchfully.dto;
+package com.switchfully.dto.order;
 
 public class CreateItemGroupDTO {
 

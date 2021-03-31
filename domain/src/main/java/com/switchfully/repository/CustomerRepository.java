@@ -10,11 +10,11 @@ public class CustomerRepository {
 
     private final Set<Customer> customers = new HashSet<>();
 
-    public boolean createCustomer(Customer customer){
+    public boolean createCustomer(Customer customer) {
         return customers.add(customer);
     }
 
-    public Collection<Customer> getAllCustomers(){
+    public Collection<Customer> getAllCustomers() {
         return Collections.unmodifiableSet(customers);
     }
 

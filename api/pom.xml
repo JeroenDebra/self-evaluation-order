@@ -25,6 +25,11 @@
             <groupId>com.switchfully</groupId>
             <artifactId>infrastructure</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

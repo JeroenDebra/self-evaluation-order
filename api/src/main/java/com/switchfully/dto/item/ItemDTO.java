@@ -1,4 +1,4 @@
-package com.switchfully.dto;
+package com.switchfully.dto.item;
 
 import java.math.BigDecimal;
 import java.util.UUID;

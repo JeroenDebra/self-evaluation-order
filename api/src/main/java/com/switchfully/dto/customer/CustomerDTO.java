@@ -1,4 +1,4 @@
-package com.switchfully.dto;
+package com.switchfully.dto.customer;
 
 public class CustomerDTO {
 
@@ -6,11 +6,11 @@ public class CustomerDTO {
     private String firstname;
     private String lastname;
     private String email;
-    private String phonenumber;
     private String streetname;
     private String streetnumber;
     private String city;
     private String postcode;
+    private String phonenumber;
 
     public String getId() {
         return id;

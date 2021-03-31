@@ -1,6 +1,6 @@
 package com.switchfully.mapper;
 
-import com.switchfully.dto.OrderDTO;
+import com.switchfully.dto.order.OrderDTO;
 import com.switchfully.model.order.Order;
 import org.springframework.stereotype.Component;
 

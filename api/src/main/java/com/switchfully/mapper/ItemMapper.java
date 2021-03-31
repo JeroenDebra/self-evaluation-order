@@ -1,7 +1,8 @@
 package com.switchfully.mapper;
 
-import com.switchfully.dto.CreateItemDTO;
-import com.switchfully.dto.ItemDTO;
+import com.switchfully.dto.item.CreateItemDTO;
+import com.switchfully.dto.item.ItemDTO;
+import com.switchfully.dto.item.UpdateItemDTO;
 import com.switchfully.model.item.Currency;
 import com.switchfully.model.item.Item;
 import com.switchfully.model.item.ItemInfo;
@@ -22,8 +23,20 @@ public class ItemMapper {
         return new Item(creataItemInfo(createItemDTO), createItemDTO.getStockAmount());
     }
 
+    public Item toItem(UpdateItemDTO updateItemDTO){
+        return new Item(creataItemInfo(updateItemDTO),updateItemDTO.getAmount());
+    }
+
     private ItemInfo creataItemInfo(CreateItemDTO createItemDTO){
         return new ItemInfo(createItemDTO.getName(),createItemDTO.getDescription(),createPrice(createItemDTO));
+    }
+
+    private ItemInfo creataItemInfo(UpdateItemDTO updateItemDTO){
+        return new ItemInfo(updateItemDTO.getName(),updateItemDTO.getDescription(),createPrice(updateItemDTO));
+    }
+
+    private Price createPrice(UpdateItemDTO updateItemDTO){
+        return new Price(BigDecimal.valueOf(updateItemDTO.getPrice()),Currency.EURO);
     }
 
     private Price createPrice(CreateItemDTO createItemDTO){

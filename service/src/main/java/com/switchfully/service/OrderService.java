@@ -28,7 +28,7 @@ public class OrderService {
         Set<ItemGroup> items = productAndAmount.keySet().stream().map(  productId -> new ItemGroup(itemService.getItem(productId),
                 productAndAmount.get(productId))).collect(Collectors.toSet());
 
-        Order order = new Order(items, customerService.getCustomer(customerId));
+        Order order = new Order(items, customerService.getCustomerById(customerId));
 
         if (!orderRepository.addOrder(order)) throw new OrderCouldNotBeCreatedException("Order could not be created");
 

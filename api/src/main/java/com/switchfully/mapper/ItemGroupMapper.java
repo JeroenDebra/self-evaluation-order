@@ -1,7 +1,7 @@
 package com.switchfully.mapper;
 
-import com.switchfully.dto.CreateItemGroupDTO;
-import com.switchfully.dto.ItemGroupDTO;
+import com.switchfully.dto.order.CreateItemGroupDTO;
+import com.switchfully.dto.order.ItemGroupDTO;
 import com.switchfully.model.order.ItemGroup;
 import org.springframework.stereotype.Component;
 

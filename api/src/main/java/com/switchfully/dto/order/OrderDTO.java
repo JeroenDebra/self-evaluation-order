@@ -1,4 +1,6 @@
-package com.switchfully.dto;
+package com.switchfully.dto.order;
+
+import com.switchfully.dto.customer.CustomerDTO;
 
 import java.util.Collection;
 import java.util.UUID;

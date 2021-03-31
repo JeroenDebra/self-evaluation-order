@@ -1,4 +1,4 @@
-package com.switchfully.dto;
+package com.switchfully.dto.item;
 
 public class CreateItemDTO {
 

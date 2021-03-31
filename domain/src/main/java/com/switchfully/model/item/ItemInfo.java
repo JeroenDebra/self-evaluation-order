@@ -6,9 +6,9 @@ import java.util.UUID;
 public class ItemInfo {
 
     private final UUID id;
-    private final String name;
-    private final String description;
-    private final Price price;
+    private  String name;
+    private  String description;
+    private  Price price;
 
     public ItemInfo(String name, String description, Price price) {
         id = UUID.randomUUID();
@@ -61,5 +61,11 @@ public class ItemInfo {
 
     public ItemInfo deepClone() {
         return new ItemInfo(this.getId(),this.getName(),this.getDescription(),this.getPrice());
+    }
+
+    public void update(ItemInfo itemInfo) {
+        name = itemInfo.getName();
+        description = itemInfo.getDescription();
+        price = itemInfo.getPrice();
     }
 }

@@ -10,7 +10,6 @@ public class Item {
     public Item(ItemInfo itemInfo, int stockAmount) {
        this.itemInfo = itemInfo;
         this.stockAmount = validStockAmount(stockAmount);
-
     }
 
     private int validStockAmount(int stockAmount) {
@@ -41,5 +40,10 @@ public class Item {
 
     public void decreaseStockAmount(Integer amount) {
         this.stockAmount -= amount;
+    }
+
+    public void update(Item toItem) {
+        stockAmount = toItem.getStockAmount();
+        itemInfo.update(toItem.getItemInfo());
     }
 }

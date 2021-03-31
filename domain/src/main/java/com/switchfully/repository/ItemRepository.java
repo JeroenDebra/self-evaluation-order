@@ -1,12 +1,8 @@
 package com.switchfully.repository;
 
-import com.switchfully.model.item.Currency;
 import com.switchfully.model.item.Item;
-import com.switchfully.model.item.ItemInfo;
-import com.switchfully.model.item.Price;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Optional;
@@ -16,14 +12,6 @@ import java.util.Set;
 public class ItemRepository {
 
     private final Set<Item> items = new HashSet<>();
-
-    public ItemRepository() {
-        init();
-    }
-
-    private void init(){
-        items.add(new Item(new ItemInfo("hammer","",new Price(BigDecimal.TEN, Currency.EURO)),20));
-    }
 
     public Collection<Item> getAllItems(){
         return items;
@@ -35,5 +23,12 @@ public class ItemRepository {
 
     public Optional<Item> getItemById(String productId) {
         return items.stream().filter(item -> item.getItemInfo().getId().toString().equals(productId)).findFirst();
+    }
+
+    public Item updateItem(String id, Item toItem) {
+      Item itemToUpdate =  items.stream().filter(item -> item.getItemInfo().getId().toString().equals(id)).findFirst().get();
+      itemToUpdate.update(toItem);
+
+      return itemToUpdate;
     }
 }

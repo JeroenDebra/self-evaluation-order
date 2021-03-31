@@ -1,7 +1,7 @@
 package com.switchfully.controllers;
 
-import com.switchfully.dto.CreateItemGroupDTO;
-import com.switchfully.dto.OrderDTO;
+import com.switchfully.dto.order.CreateItemGroupDTO;
+import com.switchfully.dto.order.OrderDTO;
 import com.switchfully.mapper.ItemGroupMapper;
 import com.switchfully.mapper.OrderMapper;
 import com.switchfully.service.OrderService;

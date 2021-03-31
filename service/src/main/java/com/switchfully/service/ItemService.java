@@ -44,4 +44,13 @@ public class ItemService {
     public void reduceStock(Map<String,Integer> productAndAmount) {
         productAndAmount.keySet().forEach(productId -> getItem(productId).decreaseStockAmount(productAndAmount.get(productId)));
     }
+
+    public Item updateItem(String authorisationId, String id, Item toItem) {
+        if (!adminService.isAdmin(authorisationId)) throw new NotAuthorizedException("user with id:" + authorisationId + "tried to add an item but has " + "not permission");
+
+        if (itemRepository.getItemById(id).isEmpty()) throw new ItemNotFoundException("item with product id:" + id + " could not be found");
+
+        return itemRepository.updateItem(id, toItem);
+
+    }
 }

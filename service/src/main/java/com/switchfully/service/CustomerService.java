@@ -27,17 +27,23 @@ public class CustomerService {
         return customer;
     }
 
-    public Collection<Customer> getAllCustomer(String id){
-        if (!adminService.isAdmin(id)) throw new NotAuthorizedException("user with id: " + id + "tried to get Customer data but is not an admin");
+    public Collection<Customer> getAllCustomer(String AuthorizatinoId){
+        if (!adminService.isAdmin(AuthorizatinoId)) throw new NotAuthorizedException("user with id: " + AuthorizatinoId + "tried to get Customer data but is not an admin");
 
         return customerRepository.getAllCustomers();
     }
 
-    public Customer getCustomer(String id) {
+    public Customer viewCustomer(String AuthorizatinoId, String id) {
+        if (!adminService.isAdmin(AuthorizatinoId)) throw new NotAuthorizedException("user with id: " + AuthorizatinoId + "tried to get Customer data but is not an admin");
+
+      return getCustomerById(id);
+    }
+
+    protected Customer getCustomerById(String id){
         Optional<Customer> customer = customerRepository.getCustomer(id);
-        if (customer.isEmpty()) {
-            throw new CustomerNotFoundException("Customer with id:" + id + "could not be found");
-        }
+
+        if (customer.isEmpty()) throw new CustomerNotFoundException("Customer with id:" + id + "could not be found");
+
         return customer.get();
     }
 
