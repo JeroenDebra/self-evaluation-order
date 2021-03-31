@@ -1,21 +1,18 @@
 package com.switchfully.mapper;
 
 import com.switchfully.dto.OrderDTO;
-import com.switchfully.model.item.Item;
 import com.switchfully.model.order.Order;
 import org.springframework.stereotype.Component;
-
-import java.util.stream.Collectors;
 
 @Component
 public class OrderMapper {
 
     private final CustomerMapper customerMapper;
-    private final ItemMapper itemMapper;
+    private final ItemGroupMapper itemGroupMapper;
 
-    public OrderMapper(CustomerMapper customerMapper, ItemMapper itemMapper) {
+    public OrderMapper(CustomerMapper customerMapper, ItemGroupMapper itemGroupMapper) {
         this.customerMapper = customerMapper;
-        this.itemMapper = itemMapper;
+        this.itemGroupMapper = itemGroupMapper;
     }
 
     public OrderDTO toDTO(Order order){
@@ -23,8 +20,8 @@ public class OrderMapper {
 
         return new OrderDTO()
                 .setOrderId(order.getId())
-                .setCustomerDTO(customerMapper.toCustomerDTO(order.getCustomer()))
-                .setOrderedItems(itemMapper.listItemToListDTO(order.getItems().stream().map(itemGroup -> new Item(itemGroup.getItemInfo(),itemGroup.getAmount())).collect(Collectors.toList())))
+                .setCustomer(customerMapper.toCustomerDTO(order.getCustomer()))
+                .setOrderedItems(itemGroupMapper.listItemGroupToListDTO(order.getItems()))
                 .setTotalPrice(order.getTotalPrice().toString());
     }
 }

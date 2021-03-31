@@ -6,19 +6,19 @@ import java.util.UUID;
 public class OrderDTO {
 
     private UUID orderId;
-    private CustomerDTO customerDTO;
-    private Collection<ItemDTO> orderedItems;
+    private CustomerDTO Customer;
+    private Collection<ItemGroupDTO> orderedItems;
     private String totalPrice;
 
     public UUID getOrderId() {
         return orderId;
     }
 
-    public CustomerDTO getCustomerDTO() {
-        return customerDTO;
+    public CustomerDTO getCustomer() {
+        return Customer;
     }
 
-    public Collection<ItemDTO> getOrderedItems() {
+    public Collection<ItemGroupDTO> getOrderedItems() {
         return orderedItems;
     }
 
@@ -31,12 +31,12 @@ public class OrderDTO {
         return this;
     }
 
-    public OrderDTO setCustomerDTO(CustomerDTO customerDTO) {
-        this.customerDTO = customerDTO;
+    public OrderDTO setCustomer(CustomerDTO customer) {
+        this.Customer = customer;
         return this;
     }
 
-    public OrderDTO setOrderedItems(Collection<ItemDTO> orderedItems) {
+    public OrderDTO setOrderedItems(Collection<ItemGroupDTO> orderedItems) {
         this.orderedItems = orderedItems;
         return this;
     }

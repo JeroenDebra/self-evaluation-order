@@ -7,9 +7,8 @@ import com.switchfully.model.item.Item;
 import com.switchfully.model.item.ItemInfo;
 import com.switchfully.model.item.Price;
 import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.stream.Collectors;
 
 @Component
 public class ItemMapper {
@@ -29,10 +28,6 @@ public class ItemMapper {
 
     private Price createPrice(CreateItemDTO createItemDTO){
         return new Price(BigDecimal.valueOf(createItemDTO.getPrice()),Currency.EURO);
-    }
-
-    public Collection<ItemDTO> listItemToListDTO(Collection<Item> items) {
-        return items.stream().map(this::toDto).collect(Collectors.toList());
     }
 
 }
