@@ -6,6 +6,7 @@ import com.switchfully.model.order.Order;
 import com.switchfully.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -35,5 +36,9 @@ public class OrderService {
         itemService.reduceStock(productAndAmount);
 
         return order;
+    }
+
+    public Collection<Order> getOrdersByCustomer(String customerId) {
+        return orderRepository.getOrdersByCustomer(customerId);
     }
 }

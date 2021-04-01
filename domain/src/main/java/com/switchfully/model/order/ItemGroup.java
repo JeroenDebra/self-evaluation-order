@@ -13,7 +13,7 @@ public class ItemGroup {
     private final LocalDate shippingDate;
 
     public ItemGroup(Item item, int amount) {
-        this.itemInfo = item.getItemInfo().deepClone();
+        this.itemInfo = item.getItemInfo().getCopy();
         this.amount = amount;
         this.shippingDate = calculateShippingDate(item);
     }

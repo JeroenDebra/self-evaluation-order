@@ -43,7 +43,7 @@ public class Item {
     }
 
     public void update(Item toItem) {
-        stockAmount = toItem.getStockAmount();
+        stockAmount = validStockAmount(toItem.getStockAmount());
         itemInfo.update(toItem.getItemInfo());
     }
 }

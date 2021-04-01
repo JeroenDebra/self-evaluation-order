@@ -1,14 +1,12 @@
 package com.switchfully.dto.order;
 
-import com.switchfully.dto.customer.CustomerDTO;
-
 import java.util.Collection;
 import java.util.UUID;
 
 public class OrderDTO {
 
     private UUID orderId;
-    private CustomerDTO Customer;
+    private String CustomerId;
     private Collection<ItemGroupDTO> orderedItems;
     private String totalPrice;
 
@@ -16,8 +14,8 @@ public class OrderDTO {
         return orderId;
     }
 
-    public CustomerDTO getCustomer() {
-        return Customer;
+    public String getCustomer() {
+        return CustomerId;
     }
 
     public Collection<ItemGroupDTO> getOrderedItems() {
@@ -33,8 +31,8 @@ public class OrderDTO {
         return this;
     }
 
-    public OrderDTO setCustomer(CustomerDTO customer) {
-        this.Customer = customer;
+    public OrderDTO setCustomer(String customerId) {
+        this.CustomerId = customerId;
         return this;
     }
 

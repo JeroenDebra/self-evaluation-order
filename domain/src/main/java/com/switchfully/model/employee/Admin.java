@@ -15,7 +15,7 @@ public class Admin {
         this.email = validEmail(email);
     }
 
-     public Admin(UUID id, String email) {
+    public Admin(UUID id, String email) {
         this.id = id;
         this.email = email;
     }

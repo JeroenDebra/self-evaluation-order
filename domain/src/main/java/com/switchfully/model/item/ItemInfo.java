@@ -59,7 +59,7 @@ public class ItemInfo {
         return Objects.hash(id);
     }
 
-    public ItemInfo deepClone() {
+    public ItemInfo getCopy() {
         return new ItemInfo(this.getId(),this.getName(),this.getDescription(),this.getPrice());
     }
 
