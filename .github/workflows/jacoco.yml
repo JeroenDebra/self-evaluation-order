@@ -44,4 +44,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: jacoco-report
-        path: domain/target/site/jacoco/
+        path: /domain/target2/sitetest/jacoco/
